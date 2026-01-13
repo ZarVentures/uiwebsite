@@ -90,6 +90,7 @@ const defaultHero: HeroContent = {
   primaryButtonLink: "#portfolio",
   secondaryButtonText: "Get Started",
   secondaryButtonLink: "#contact",
+  backgroundImage: "/hero-background.jpg",
 }
 
 const defaultServices: Service[] = [
