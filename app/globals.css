@@ -200,3 +200,16 @@ html {
   outline: 2px solid oklch(0.5 0.15 70);
   outline-offset: 2px;
 }
+
+/* Sharp background image rendering */
+.hero-background {
+  object-fit: cover;
+  object-position: center;
+  image-rendering: auto;
+  -ms-interpolation-mode: bicubic;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: auto;
+  z-index: 0;
+}

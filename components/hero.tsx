@@ -17,14 +17,14 @@ export default function Hero() {
   }
 
   return (
-    <section 
-      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#FAF8F3] via-[#F5F1E8] to-[#F0ECE0]"
-      style={hero.backgroundImage ? {
-        backgroundImage: `url(${hero.backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      } : undefined}
-    >
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#FAF8F3] via-[#F5F1E8] to-[#F0ECE0]">
+      {hero.backgroundImage && (
+        <img
+          src={hero.backgroundImage}
+          alt=""
+          className="hero-background absolute inset-0 w-full h-full object-cover object-center"
+        />
+      )}
       {!hero.backgroundImage && (
         <div className="absolute inset-0">
           <div className="absolute top-20 right-20 w-[500px] h-[500px] bg-gradient-to-br from-primary/8 to-accent/5 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
