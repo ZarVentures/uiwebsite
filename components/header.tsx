@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 
 export default function Header() {
@@ -9,14 +10,28 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-border/50 luxury-shadow">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
-        <Link href="/" className="flex flex-col hover:opacity-80 transition-opacity">
-          <span className="text-2xl font-bold gold-text tracking-tight">
-          Urban Innovation
-          </span>
-          <span className="text-xs sm:text-sm font-medium text-foreground/70 tracking-wide mt-0.5">
-            Innovating Urban Space
-          </span>
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-0 sm:py-1 flex items-center justify-between">
+        <Link
+          href="/"
+          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+        >
+          <div className="relative h-20 w-20 sm:h-24 sm:w-24">
+            <Image
+              src="/urban-innovation-logo.png"
+              alt="Urban Innovation logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-xl sm:text-2xl font-bold gold-text tracking-tight leading-tight">
+              Urban Innovation
+            </span>
+            <span className="text-[10px] sm:text-xs font-medium text-foreground/70 tracking-wide mt-0.5">
+              Innovating Urban Space
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Menu */}

@@ -2,6 +2,7 @@
 
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import Image from "next/image"
 
 export default function ServicesPage() {
   return (
@@ -10,17 +11,33 @@ export default function ServicesPage() {
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-5 py-2.5 bg-white/80 backdrop-blur-sm text-primary rounded-full text-xs font-semibold tracking-wider uppercase luxury-shadow border border-primary/20 mb-6">
-            OUR SERVICES
-          </span>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-foreground mb-6 text-center tracking-tight">
-            Our Services
-          </h1>
-          <p className="text-muted-foreground text-center max-w-3xl mx-auto text-lg font-light leading-relaxed">
-            Comprehensive technical and interior design services delivered with precision and excellence
-          </p>
-        </div>
+        <section className="relative mb-16 rounded-3xl overflow-hidden luxury-shadow bg-muted">
+          <Image
+            src="/services-hero.jpg.png"
+            alt="Our Services"
+            fill
+            className="object-cover"
+            priority
+            onError={(e) => {
+              const target = e.target as HTMLImageElement
+              if (target) {
+                target.src = "/placeholder.jpg"
+              }
+            }}
+          />
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="relative px-6 sm:px-10 py-16 sm:py-20 text-center">
+            <span className="inline-block px-5 py-2.5 bg-white/80 backdrop-blur-sm text-primary rounded-full text-xs font-semibold tracking-wider uppercase luxury-shadow border border-primary/20 mb-6">
+              OUR SERVICES
+            </span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2 tracking-tight">
+              Our Services
+            </h1>
+            <p className="text-white/90 text-center max-w-3xl mx-auto text-lg font-light leading-relaxed">
+              Comprehensive technical and interior design services delivered with precision and excellence
+            </p>
+          </div>
+        </section>
 
         {/* Service 1 Section */}
         <section className="bg-white luxury-shadow rounded-2xl p-10 elegant-border mb-12">

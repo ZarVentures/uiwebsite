@@ -11,14 +11,30 @@ export default function AboutPage() {
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-5 py-2.5 bg-white/80 backdrop-blur-sm text-primary rounded-full text-xs font-semibold tracking-wider uppercase luxury-shadow border border-primary/20 mb-6">
-            ABOUT US
-          </span>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-foreground mb-6 text-center tracking-tight">
-            About Urban Innovation
-          </h1>
-        </div>
+        <section className="relative mb-16 rounded-3xl overflow-hidden luxury-shadow bg-muted">
+          <Image
+            src="/about-hero.jpg.png"
+            alt="Urban Innovation design team at work"
+            fill
+            className="object-cover"
+            priority
+            onError={(e) => {
+              const target = e.target as HTMLImageElement
+              if (target) {
+                target.src = "/placeholder.jpg"
+              }
+            }}
+          />
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="relative px-6 sm:px-10 py-16 sm:py-20 text-center">
+            <span className="inline-block px-5 py-2.5 bg-white/80 backdrop-blur-sm text-primary rounded-full text-xs font-semibold tracking-wider uppercase luxury-shadow border border-primary/20 mb-6">
+              ABOUT US
+            </span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2 tracking-tight">
+              About Urban Innovation
+            </h1>
+          </div>
+        </section>
 
         {/* Main Content Section */}
         <section className="bg-white luxury-shadow rounded-2xl p-10 elegant-border mb-12">

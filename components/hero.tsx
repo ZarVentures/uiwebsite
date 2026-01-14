@@ -19,7 +19,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#0f172a' }}>
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-32">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-12 pb-20">
         {hero.badge && (
           <div className="mb-8 animate-fade-in">
             <span className="inline-block px-6 py-2.5 bg-white/80 backdrop-blur-sm text-primary rounded-full text-xs font-semibold tracking-wider uppercase luxury-shadow border border-primary/20">
