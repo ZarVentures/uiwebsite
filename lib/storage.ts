@@ -97,7 +97,7 @@ const defaultServices: Service[] = [
   {
     id: "1",
     icon: "Home",
-    title: "Residential Design",
+    title: "Residential Transformation",
     description: "Transform your home into a personalized sanctuary with our tailored residential design solutions.",
   },
   {

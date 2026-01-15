@@ -13,7 +13,7 @@ export default function QualitySafetyPage() {
         {/* Hero Section */}
         <section className="relative mb-16 rounded-3xl overflow-hidden luxury-shadow bg-muted">
           <Image
-            src="/quality-safety-hero.jpg.png.png"
+            src="/quality-safety-hero.jpg"
             alt="Quality and Safety Policy"
             fill
             className="object-cover"

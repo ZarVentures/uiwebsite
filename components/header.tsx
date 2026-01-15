@@ -36,27 +36,27 @@ export default function Header() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-10">
-          <Link href="/" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-sm tracking-wide relative group">
+          <Link href="/" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-base tracking-wide relative group">
             Home
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
           </Link>
-          <Link href="/about" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-sm tracking-wide relative group">
+          <Link href="/about" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-base tracking-wide relative group">
             About Us
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
           </Link>
-          <Link href="#portfolio" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-sm tracking-wide relative group">
+          <Link href="#portfolio" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-base tracking-wide relative group">
             Portfolio
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
           </Link>
-          <Link href="/quality-safety" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-sm tracking-wide relative group">
+          <Link href="/quality-safety" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-base tracking-wide relative group">
             Quality and Safety Policy
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
           </Link>
-          <Link href="/services" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-sm tracking-wide relative group">
+          <Link href="/services" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-base tracking-wide relative group">
             Services
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
           </Link>
-          <Link href="/contact" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-sm tracking-wide relative group">
+          <Link href="/contact" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-base tracking-wide relative group">
             Contact
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
           </Link>
@@ -71,22 +71,22 @@ export default function Header() {
         {isOpen && (
           <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b border-border md:hidden luxury-shadow">
             <div className="flex flex-col gap-4 p-6">
-              <Link href="/" className="text-foreground hover:text-primary transition-colors font-medium">
+              <Link href="/" className="text-foreground hover:text-primary transition-colors font-medium text-base">
                 Home
               </Link>
-              <Link href="/about" className="text-foreground hover:text-primary transition-colors font-medium">
+              <Link href="/about" className="text-foreground hover:text-primary transition-colors font-medium text-base">
                 About Us
               </Link>
-              <Link href="#portfolio" className="text-foreground hover:text-primary transition-colors font-medium">
+              <Link href="#portfolio" className="text-foreground hover:text-primary transition-colors font-medium text-base">
                 Portfolio
               </Link>
-              <Link href="/quality-safety" className="text-foreground hover:text-primary transition-colors font-medium">
+              <Link href="/quality-safety" className="text-foreground hover:text-primary transition-colors font-medium text-base">
                 Quality and Safety Policy
               </Link>
-              <Link href="/services" className="text-foreground hover:text-primary transition-colors font-medium">
+              <Link href="/services" className="text-foreground hover:text-primary transition-colors font-medium text-base">
                 Services
               </Link>
-              <Link href="/contact" className="text-foreground hover:text-primary transition-colors font-medium">
+              <Link href="/contact" className="text-foreground hover:text-primary transition-colors font-medium text-base">
                 Contact
               </Link>
             </div>

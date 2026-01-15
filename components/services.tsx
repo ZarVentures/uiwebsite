@@ -1,16 +1,25 @@
-"use client"
+ "use client"
 
-import * as LucideIcons from "lucide-react"
+import type { ComponentType } from "react"
+import { Home, Building2, Palette, Lightbulb } from "lucide-react"
 import { useSiteData } from "@/lib/use-site-data"
+
+type IconComponent = ComponentType<{ className?: string }>
+
+const ICON_MAP: Record<string, IconComponent> = {
+  Home,
+  Building2,
+  Palette,
+  Lightbulb,
+}
+
+const getIcon = (iconName?: string): IconComponent => {
+  if (!iconName) return Home
+  return ICON_MAP[iconName] || Home
+}
 
 export default function Services() {
   const { services, isLoading } = useSiteData()
-
-  const getIcon = (iconName: string) => {
-    if (!iconName) return LucideIcons.Home
-    const IconComponent = (LucideIcons as any)[iconName] as React.ComponentType<{ className?: string }>
-    return IconComponent || LucideIcons.Home
-  }
 
   if (isLoading) {
     return (
@@ -41,12 +50,12 @@ export default function Services() {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {services.map((service, index) => {
+        {services.map((service) => {
           const Icon = getIcon(service.icon)
           return (
             <div 
               key={service.id} 
-              className="group bg-white luxury-shadow rounded-2xl p-8 elegant-border premium-hover relative overflow-hidden"
+              className="group bg-[#FDF0D5] luxury-shadow rounded-2xl p-8 elegant-border premium-hover relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-bl-full"></div>
               <div className="relative">

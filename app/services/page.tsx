@@ -13,7 +13,7 @@ export default function ServicesPage() {
         {/* Hero Section */}
         <section className="relative mb-16 rounded-3xl overflow-hidden luxury-shadow bg-muted">
           <Image
-            src="/services-hero.jpg.png"
+            src="/services-hero.jpg"
             alt="Our Services"
             fill
             className="object-cover"

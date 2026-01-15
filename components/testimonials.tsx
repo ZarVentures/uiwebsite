@@ -43,7 +43,7 @@ export default function Testimonials() {
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}
-            className="group bg-white luxury-shadow rounded-2xl p-8 elegant-border premium-hover relative overflow-hidden"
+            className="group bg-[#D4AF37] luxury-shadow rounded-2xl p-8 elegant-border premium-hover relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-bl-full"></div>
             <div className="relative">

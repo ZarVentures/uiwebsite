@@ -13,7 +13,7 @@ export default function AboutPage() {
         {/* Hero Section */}
         <section className="relative mb-16 rounded-3xl overflow-hidden luxury-shadow bg-muted">
           <Image
-            src="/about-hero.jpg.png"
+            src="/about-hero.jpg"
             alt="Urban Innovation design team at work"
             fill
             className="object-cover"

@@ -13,7 +13,7 @@ export default function ContactPage() {
         {/* Hero Section */}
         <section className="relative mb-16 rounded-3xl overflow-hidden luxury-shadow bg-muted">
           <Image
-            src="/contact-hero.jpg.png.png"
+            src="/contact-hero.jpg"
             alt="Get In Touch"
             fill
             className="object-cover"

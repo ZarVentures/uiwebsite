@@ -1,6 +1,7 @@
-"use client"
+ "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { useSiteData } from "@/lib/use-site-data"
 
 export default function Portfolio() {
@@ -64,10 +65,18 @@ export default function Portfolio() {
             className="group bg-white rounded-2xl overflow-hidden luxury-shadow premium-hover relative"
           >
             <div className="relative h-80 bg-muted overflow-hidden">
-              <img
-                src={project.image || "/placeholder.svg"}
-                alt={project.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              <Image
+                src={project.image || "/placeholder.jpg"}
+                alt={project.title || "Project image"}
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement
+                  if (target) {
+                    target.src = "/placeholder.jpg"
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute top-4 left-4">
