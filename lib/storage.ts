@@ -89,7 +89,7 @@ const defaultHero: HeroContent = {
   primaryButtonText: "Explore Our Work",
   primaryButtonLink: "#portfolio",
   secondaryButtonText: "Get Started",
-  secondaryButtonLink: "#contact",
+  secondaryButtonLink: "/contact",
   backgroundImage: "/hero-background.jpg",
 }
 

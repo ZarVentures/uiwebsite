@@ -56,6 +56,10 @@ export default function Header() {
             Services
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
           </Link>
+          <Link href="/joinery" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-base tracking-wide relative group">
+            Joinery
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+          </Link>
           <Link href="/contact" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-base tracking-wide relative group">
             Contact
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
@@ -85,6 +89,9 @@ export default function Header() {
               </Link>
               <Link href="/services" className="text-foreground hover:text-primary transition-colors font-medium text-base">
                 Services
+              </Link>
+              <Link href="/joinery" className="text-foreground hover:text-primary transition-colors font-medium text-base">
+                Joinery
               </Link>
               <Link href="/contact" className="text-foreground hover:text-primary transition-colors font-medium text-base">
                 Contact

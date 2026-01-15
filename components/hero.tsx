@@ -71,7 +71,7 @@ export default function Hero() {
           )}
           {hero.secondaryButtonText && (
             <a
-              href={hero.secondaryButtonLink || "#contact"}
+              href={hero.secondaryButtonLink === "#contact" ? "/contact" : (hero.secondaryButtonLink || "/contact")}
               className="group inline-flex items-center justify-center bg-white/90 backdrop-blur-sm border-2 border-primary/30 text-foreground px-12 py-5 rounded-lg font-semibold text-base tracking-wide hover:bg-white hover:border-primary/50 transition-all duration-300 hover:scale-105 luxury-shadow group-hover:shadow-xl"
             >
               {hero.secondaryButtonText}
