@@ -2,7 +2,7 @@ import { Instagram, Facebook, Linkedin, MapPin, Phone, Mail } from "lucide-react
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-foreground to-foreground/95 text-primary-foreground">
+    <footer className="bg-linear-to-b from-foreground to-foreground/95 text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
           <div>
@@ -14,7 +14,7 @@ export default function Footer() {
             <div className="space-y-4 text-white font-light">
               <div>
                 <div className="flex items-start gap-3 mb-2">
-                  <MapPin size={18} className="text-[#FACC6B] mt-1 flex-shrink-0" />
+                  <MapPin size={18} className="text-[#FACC6B] mt-1 shrink-0" />
                   <div>
                     <p className="font-semibold mb-1">Head office</p>
                     <p>129-Port Saeed Tower</p>
@@ -25,7 +25,7 @@ export default function Footer() {
               </div>
               <div>
                 <div className="flex items-center gap-3">
-                  <Phone size={18} className="text-[#FACC6B] flex-shrink-0" />
+                  <Phone size={18} className="text-[#FACC6B] shrink-0" />
                   <a
                     href="tel:+971501470024"
                     className="hover:text-primary transition-colors duration-300"
@@ -36,7 +36,7 @@ export default function Footer() {
               </div>
               <div>
                 <div className="flex items-center gap-3">
-                  <Mail size={18} className="text-[#FACC6B] flex-shrink-0" />
+                  <Mail size={18} className="text-[#FACC6B] shrink-0" />
                   <div>
                     <a href="mailto:urbaninnovationllc@gmail.com" className="hover:text-primary transition-colors duration-300">
                       urbaninnovationllc@gmail.com

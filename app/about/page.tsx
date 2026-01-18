@@ -1,14 +1,11 @@
 "use client"
 
-import Header from "@/components/header"
-import Footer from "@/components/footer"
 import Image from "next/image"
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/10">
-      <Header />
-      
+    <div className="bg-linear-to-b from-background via-background to-muted/10">
+
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Hero Section */}
         <section className="relative mb-16 rounded-3xl overflow-hidden luxury-shadow bg-muted">
@@ -125,31 +122,31 @@ export default function AboutPage() {
             Why Choose Us?
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            <div className="flex items-start gap-3 p-4 rounded-xl bg-gradient-to-br from-primary/5 to-transparent">
+            <div className="flex items-start gap-3 p-4 rounded-xl bg-linear-to-br from-primary/5 to-transparent">
               <span className="text-primary mt-1 font-bold">•</span>
               <span className="text-muted-foreground text-lg font-light">15+ years of Dubai industry experience</span>
             </div>
-            <div className="flex items-start gap-3 p-4 rounded-xl bg-gradient-to-br from-primary/5 to-transparent">
+            <div className="flex items-start gap-3 p-4 rounded-xl bg-linear-to-br from-primary/5 to-transparent">
               <span className="text-primary mt-1 font-bold">•</span>
               <span className="text-muted-foreground text-lg font-light">End-to-end project handling</span>
             </div>
-            <div className="flex items-start gap-3 p-4 rounded-xl bg-gradient-to-br from-primary/5 to-transparent">
+            <div className="flex items-start gap-3 p-4 rounded-xl bg-linear-to-br from-primary/5 to-transparent">
               <span className="text-primary mt-1 font-bold">•</span>
               <span className="text-muted-foreground text-lg font-light">Skilled and experienced technical team</span>
             </div>
-            <div className="flex items-start gap-3 p-4 rounded-xl bg-gradient-to-br from-primary/5 to-transparent">
+            <div className="flex items-start gap-3 p-4 rounded-xl bg-linear-to-br from-primary/5 to-transparent">
               <span className="text-primary mt-1 font-bold">•</span>
               <span className="text-muted-foreground text-lg font-light">Quality workmanship with premium materials</span>
             </div>
-            <div className="flex items-start gap-3 p-4 rounded-xl bg-gradient-to-br from-primary/5 to-transparent">
+            <div className="flex items-start gap-3 p-4 rounded-xl bg-linear-to-br from-primary/5 to-transparent">
               <span className="text-primary mt-1 font-bold">•</span>
               <span className="text-muted-foreground text-lg font-light">Transparent pricing & clear communication</span>
             </div>
-            <div className="flex items-start gap-3 p-4 rounded-xl bg-gradient-to-br from-primary/5 to-transparent">
+            <div className="flex items-start gap-3 p-4 rounded-xl bg-linear-to-br from-primary/5 to-transparent">
               <span className="text-primary mt-1 font-bold">•</span>
               <span className="text-muted-foreground text-lg font-light">On-time project delivery</span>
             </div>
-            <div className="flex items-start gap-3 p-4 rounded-xl bg-gradient-to-br from-primary/5 to-transparent">
+            <div className="flex items-start gap-3 p-4 rounded-xl bg-linear-to-br from-primary/5 to-transparent">
               <span className="text-primary mt-1 font-bold">•</span>
               <span className="text-muted-foreground text-lg font-light">Customized solutions for all interior requirements</span>
             </div>
@@ -204,7 +201,6 @@ export default function AboutPage() {
         </section>
       </main>
 
-      <Footer />
     </div>
   )
 }

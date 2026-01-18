@@ -1,14 +1,11 @@
 "use client"
 
-import Header from "@/components/header"
-import Footer from "@/components/footer"
 import Image from "next/image"
 
 export default function QualitySafetyPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/10">
-      <Header />
-      
+    <div className="bg-linear-to-b from-background via-background to-muted/10">
+
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Hero Section */}
         <section className="relative mb-16 rounded-3xl overflow-hidden luxury-shadow bg-muted">
@@ -67,9 +64,9 @@ export default function QualitySafetyPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Value 1 */}
-            <div className="bg-gradient-to-br from-primary/5 to-transparent luxury-shadow rounded-2xl p-8 elegant-border hover:from-primary/10 transition-all duration-300 premium-hover">
+            <div className="bg-linear-to-br from-primary/5 to-transparent luxury-shadow rounded-2xl p-8 elegant-border hover:from-primary/10 transition-all duration-300 premium-hover">
               <div className="flex items-start gap-4 mb-4">
-                <span className="text-4xl font-bold text-primary flex-shrink-0">01</span>
+                <span className="text-4xl font-bold text-primary shrink-0">01</span>
                 <h3 className="text-2xl font-bold text-foreground tracking-tight">Integrity</h3>
               </div>
               <p className="text-muted-foreground text-lg font-light leading-relaxed ml-14">
@@ -78,9 +75,9 @@ export default function QualitySafetyPage() {
             </div>
 
             {/* Value 2 */}
-            <div className="bg-gradient-to-br from-primary/5 to-transparent luxury-shadow rounded-2xl p-8 elegant-border hover:from-primary/10 transition-all duration-300 premium-hover">
+            <div className="bg-linear-to-br from-primary/5 to-transparent luxury-shadow rounded-2xl p-8 elegant-border hover:from-primary/10 transition-all duration-300 premium-hover">
               <div className="flex items-start gap-4 mb-4">
-                <span className="text-4xl font-bold text-primary flex-shrink-0">02</span>
+                <span className="text-4xl font-bold text-primary shrink-0">02</span>
                 <h3 className="text-2xl font-bold text-foreground tracking-tight">Attention to Details</h3>
               </div>
               <p className="text-muted-foreground text-lg font-light leading-relaxed ml-14">
@@ -89,9 +86,9 @@ export default function QualitySafetyPage() {
             </div>
 
             {/* Value 3 */}
-            <div className="bg-gradient-to-br from-primary/5 to-transparent luxury-shadow rounded-2xl p-8 elegant-border hover:from-primary/10 transition-all duration-300 premium-hover">
+            <div className="bg-linear-to-br from-primary/5 to-transparent luxury-shadow rounded-2xl p-8 elegant-border hover:from-primary/10 transition-all duration-300 premium-hover">
               <div className="flex items-start gap-4 mb-4">
-                <span className="text-4xl font-bold text-primary flex-shrink-0">03</span>
+                <span className="text-4xl font-bold text-primary shrink-0">03</span>
                 <h3 className="text-2xl font-bold text-foreground tracking-tight">Agility</h3>
               </div>
               <p className="text-muted-foreground text-lg font-light leading-relaxed ml-14">
@@ -100,9 +97,9 @@ export default function QualitySafetyPage() {
             </div>
 
             {/* Value 4 */}
-            <div className="bg-gradient-to-br from-primary/5 to-transparent luxury-shadow rounded-2xl p-8 elegant-border hover:from-primary/10 transition-all duration-300 premium-hover">
+            <div className="bg-linear-to-br from-primary/5 to-transparent luxury-shadow rounded-2xl p-8 elegant-border hover:from-primary/10 transition-all duration-300 premium-hover">
               <div className="flex items-start gap-4 mb-4">
-                <span className="text-4xl font-bold text-primary flex-shrink-0">04</span>
+                <span className="text-4xl font-bold text-primary shrink-0">04</span>
                 <h3 className="text-2xl font-bold text-foreground tracking-tight">Resilience</h3>
               </div>
               <p className="text-muted-foreground text-lg font-light leading-relaxed ml-14">
@@ -113,7 +110,6 @@ export default function QualitySafetyPage() {
         </section>
       </main>
 
-      <Footer />
     </div>
   )
 }

@@ -1,14 +1,27 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
-import { getProjects, saveProjects, getContent, saveContent, getHero, saveHero, getServices, saveServices } from "./storage"
+import {
+  getProjects,
+  saveProjects,
+  getContent,
+  saveContent,
+  getHero,
+  saveHero,
+  getServices,
+  saveServices,
+  defaultContent,
+  defaultHero,
+  defaultServices,
+  defaultProjects,
+} from "./storage"
 import type { Project, SiteContent, HeroContent, Service } from "./storage"
 
 export function useSiteData() {
-  const [projects, setProjects] = useState<Project[]>([])
-  const [content, setContent] = useState<SiteContent>(getContent())
-  const [hero, setHero] = useState<HeroContent>(getHero())
-  const [services, setServices] = useState<Service[]>(getServices())
+  const [projects, setProjects] = useState<Project[]>(defaultProjects)
+  const [content, setContent] = useState<SiteContent>(defaultContent)
+  const [hero, setHero] = useState<HeroContent>(defaultHero)
+  const [services, setServices] = useState<Service[]>(defaultServices)
   const [isLoading, setIsLoading] = useState(true)
 
   // Listen for storage changes from other tabs/windows

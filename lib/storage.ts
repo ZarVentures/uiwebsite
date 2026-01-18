@@ -42,7 +42,7 @@ const HERO_KEY = "urban_innovation_hero"
 const SERVICES_KEY = "urban_innovation_services"
 const ADMIN_KEY = "urban_innovation_admin"
 
-const defaultContent: SiteContent = {
+export const defaultContent: SiteContent = {
   companyName: "Urban Innovation",
   tagline: "Contemporary Design Solutions",
   about: "We create inspiring interior spaces that blend aesthetics with functionality.",
@@ -51,7 +51,7 @@ const defaultContent: SiteContent = {
   address: "123 Design St, Creative City, CC 12345",
 }
 
-const defaultProjects: Project[] = [
+export const defaultProjects: Project[] = [
   {
     id: "1",
     title: "Modern Minimalist Apartment",
@@ -81,7 +81,7 @@ const defaultProjects: Project[] = [
   },
 ]
 
-const defaultHero: HeroContent = {
+export const defaultHero: HeroContent = {
   badge: "UNIQUE INTERIOR DESIGN",
   title: "LET YOUR HOME BE",
   titleHighlight: "UNIQUE AND STYLISH",
@@ -93,7 +93,7 @@ const defaultHero: HeroContent = {
   backgroundImage: "/hero-background.jpg",
 }
 
-const defaultServices: Service[] = [
+export const defaultServices: Service[] = [
   {
     id: "1",
     icon: "Home",

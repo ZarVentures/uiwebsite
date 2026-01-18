@@ -1,14 +1,11 @@
 "use client"
 
-import Header from "@/components/header"
-import Footer from "@/components/footer"
 import Image from "next/image"
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/10">
-      <Header />
-      
+    <div className="bg-linear-to-b from-background via-background to-muted/10">
+
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Hero Section */}
         <section className="relative mb-16 rounded-3xl overflow-hidden luxury-shadow bg-muted">
@@ -49,68 +46,68 @@ export default function ServicesPage() {
           </div>
 
           <div className="space-y-0">
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 False Ceiling & Light Partition Installation
               </p>
             </div>
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Air-Conditioning, Ventilation & Air Filtration Systems Installation & Maintenance
               </p>
             </div>
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Office Furniture Manufacturing
               </p>
             </div>
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Painting Contracting
               </p>
             </div>
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Home Furniture Manufacturing
               </p>
             </div>
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Carpentry & Wood Flooring Works
               </p>
             </div>
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Floor and Wall Tiling Works
               </p>
             </div>
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Interior Decoration
               </p>
             </div>
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Plaster Works
               </p>
             </div>
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Building Cleaning Services
               </p>
             </div>
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Wallpaper Fixing Works
               </p>
@@ -128,38 +125,38 @@ export default function ServicesPage() {
           </div>
 
           <div className="space-y-0">
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Air-Conditioning, Ventilation & Air Filtration Systems Installation & Maintenance
               </p>
             </div>
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Electromechanical Equipment Installation and Maintenance
               </p>
             </div>
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Steel Constructions Contracting
               </p>
             </div>
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Building Contracting
               </p>
             </div>
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Interior Decoration
               </p>
             </div>
-            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
-              <span className="text-primary font-bold text-lg mt-0 flex-shrink-0">–</span>
+            <div className="flex items-start gap-3 py-0.5 px-2 rounded-xl hover:bg-linear-to-br hover:from-primary/5 hover:to-transparent transition-all duration-300">
+              <span className="text-primary font-bold text-lg mt-0 shrink-0">–</span>
               <p className="text-muted-foreground text-lg font-light leading-none">
                 Electrical Fitting Contracting
               </p>
@@ -168,7 +165,6 @@ export default function ServicesPage() {
         </section>
       </main>
 
-      <Footer />
     </div>
   )
 }

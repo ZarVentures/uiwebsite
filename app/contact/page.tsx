@@ -1,14 +1,49 @@
 "use client"
 
-import Header from "@/components/header"
-import Footer from "@/components/footer"
+import { useState } from "react"
 import Image from "next/image"
+import { toast } from "sonner"
+import { Loader2 } from "lucide-react"
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    }
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+
+      if (response.ok) {
+        toast.success("Message sent successfully! We'll get back to you soon.")
+          ; (e.target as HTMLFormElement).reset()
+      } else {
+        throw new Error("Failed to send message")
+      }
+    } catch (error) {
+      toast.error("Failed to send message. Please try again later.")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/10">
-      <Header />
-      
+    <div className="bg-linear-to-b from-background via-background to-muted/10">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Hero Section */}
         <section className="relative mb-16 rounded-3xl overflow-hidden luxury-shadow bg-muted">
@@ -90,17 +125,19 @@ export default function ContactPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 tracking-tight">
               Write to us
             </h2>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Name <span className="text-primary">*</span>
                   </label>
                   <input
+                    name="name"
                     type="text"
                     placeholder="Your Name"
                     className="w-full px-5 py-4 rounded-xl bg-muted/50 border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 font-light"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div>
@@ -108,10 +145,12 @@ export default function ContactPage() {
                     Email <span className="text-primary">*</span>
                   </label>
                   <input
+                    name="email"
                     type="email"
                     placeholder="Your Email"
                     className="w-full px-5 py-4 rounded-xl bg-muted/50 border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 font-light"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
               </div>
@@ -120,10 +159,12 @@ export default function ContactPage() {
                   Subject
                 </label>
                 <input
+                  name="subject"
                   type="text"
                   placeholder="Subject"
                   className="w-full px-5 py-4 rounded-xl bg-muted/50 border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 font-light"
                   required
+                  disabled={isSubmitting}
                 />
               </div>
               <div>
@@ -131,25 +172,35 @@ export default function ContactPage() {
                   Message
                 </label>
                 <textarea
+                  name="message"
                   placeholder="Your Message"
                   rows={3}
                   className="w-full px-5 py-4 rounded-xl bg-muted/50 border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 font-light resize-none"
                   required
+                  disabled={isSubmitting}
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full gold-gradient text-primary-foreground py-4 rounded-xl font-semibold tracking-wide hover:opacity-95 transition-all duration-300 luxury-shadow-gold hover:shadow-xl"
+                disabled={isSubmitting}
+                className="w-full gold-gradient text-primary-foreground py-4 rounded-xl font-semibold tracking-wide hover:opacity-95 transition-all duration-300 luxury-shadow-gold hover:shadow-xl flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  "Send Message"
+                )}
               </button>
             </form>
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   )
 }
+
+
 
