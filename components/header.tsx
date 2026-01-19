@@ -44,7 +44,7 @@ export default function Header() {
             About Us
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
           </Link>
-          <Link href="#portfolio" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-base tracking-wide relative group">
+          <Link href="/portfolio" className="text-foreground hover:text-primary transition-colors duration-300 font-medium text-base tracking-wide relative group">
             Portfolio
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
           </Link>
@@ -81,7 +81,7 @@ export default function Header() {
               <Link href="/about" className="text-foreground hover:text-primary transition-colors font-medium text-base">
                 About Us
               </Link>
-              <Link href="#portfolio" className="text-foreground hover:text-primary transition-colors font-medium text-base">
+              <Link href="/portfolio" className="text-foreground hover:text-primary transition-colors font-medium text-base">
                 Portfolio
               </Link>
               <Link href="/quality-safety" className="text-foreground hover:text-primary transition-colors font-medium text-base">
