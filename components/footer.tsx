@@ -60,7 +60,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#portfolio" className="text-white hover:opacity-80 hover:text-primary transition-all duration-300 font-light">
+                <a href="/portfolio" className="text-white hover:opacity-80 hover:text-primary transition-all duration-300 font-light">
                   Portfolio
                 </a>
               </li>
