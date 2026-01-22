@@ -2,8 +2,13 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
+    console.log("=== EMAIL API CALLED ===");
+    
     try {
-        const { name, email, subject, message, projectTitle } = await req.json();
+        const body = await req.json();
+        console.log("Request body received:", JSON.stringify(body, null, 2));
+        
+        const { name, email, subject, message, projectTitle } = body;
 
         // Hardcoded fallback values in case environment variables are not set
         const FALLBACK_GMAIL_USER = "Urbaninnovationllc@gmail.com";
@@ -15,7 +20,13 @@ export async function POST(req: Request) {
         const gmailPassword = process.env.GMAIL_APP_PASSWORD || FALLBACK_GMAIL_APP_PASSWORD;
         const receiverEmail = process.env.CONTACT_RECEIVER_EMAIL || FALLBACK_CONTACT_RECEIVER_EMAIL;
 
+        console.log("Email configuration:");
+        console.log("- Gmail User:", gmailUser);
+        console.log("- Using env vars:", !!process.env.GMAIL_USER);
+        console.log("- Receiver:", receiverEmail);
+
         // 1. Create a Transporter
+        console.log("Creating nodemailer transporter...");
         const transporter = nodemailer.createTransporter({
             service: "gmail",
             auth: {
@@ -23,6 +34,11 @@ export async function POST(req: Request) {
                 pass: gmailPassword,
             },
         });
+
+        // Test the connection
+        console.log("Testing SMTP connection...");
+        await transporter.verify();
+        console.log("SMTP connection successful!");
 
         // 2. Define the email options
         const mailOptions = {
@@ -46,17 +62,38 @@ export async function POST(req: Request) {
       `,
         };
 
+        console.log("Mail options prepared:", {
+            from: mailOptions.from,
+            to: mailOptions.to,
+            subject: mailOptions.subject
+        });
+
         // 3. Send the email
-        await transporter.sendMail(mailOptions);
+        console.log("Sending email...");
+        const result = await transporter.sendMail(mailOptions);
+        console.log("Email sent successfully!", result.messageId);
 
         return NextResponse.json(
-            { message: "Email sent successfully" },
+            { 
+                message: "Email sent successfully",
+                messageId: result.messageId,
+                usingEnvVars: !!process.env.GMAIL_USER
+            },
             { status: 200 }
         );
     } catch (error) {
-        console.error("Email sending error:", error);
+        console.error("=== EMAIL ERROR ===");
+        console.error("Error type:", error?.constructor?.name);
+        console.error("Error message:", error instanceof Error ? error.message : "Unknown error");
+        console.error("Full error:", error);
+        console.error("Stack trace:", error instanceof Error ? error.stack : "No stack trace");
+        
         return NextResponse.json(
-            { message: "Failed to send email", error: error instanceof Error ? error.message : "Unknown error" },
+            { 
+                message: "Failed to send email", 
+                error: error instanceof Error ? error.message : "Unknown error",
+                errorType: error?.constructor?.name || "Unknown"
+            },
             { status: 500 }
         );
     }

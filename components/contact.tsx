@@ -22,6 +22,8 @@ export default function Contact() {
     }
 
     try {
+      console.log("Sending contact form data:", data);
+      
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
@@ -30,14 +32,22 @@ export default function Contact() {
         body: JSON.stringify(data),
       })
 
+      console.log("Response status:", response.status);
+      console.log("Response ok:", response.ok);
+
+      const responseData = await response.json();
+      console.log("Response data:", responseData);
+
       if (response.ok) {
-        toast.success("Message sent successfully! We'll get back to you soon.")
-          ; (e.target as HTMLFormElement).reset()
+        toast.success(`Message sent successfully! ${responseData.usingEnvVars ? '(Using env vars)' : '(Using fallback)'}`);
+        (e.target as HTMLFormElement).reset()
       } else {
-        throw new Error("Failed to send message")
+        console.error("Server error:", responseData);
+        toast.error(`Failed to send message: ${responseData.error || responseData.message || 'Unknown error'}`);
       }
     } catch (error) {
-      toast.error("Failed to send message. Please try again later.")
+      console.error("Network/Client error:", error);
+      toast.error(`Network error: ${error instanceof Error ? error.message : 'Please check your connection'}`);
     } finally {
       setIsSubmitting(false)
     }
