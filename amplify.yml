@@ -3,6 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
+        - nvm use 18
         - npm ci
     build:
       commands:
@@ -15,3 +16,8 @@ frontend:
     paths:
       - node_modules/**/*
       - .next/cache/**/*
+  customHeaders:
+    - pattern: '/_next/static/**'
+      headers:
+        - key: Cache-Control
+          value: public, max-age=31536000, immutable

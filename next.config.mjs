@@ -12,7 +12,6 @@ const nextConfig = {
   },
   // Ensure proper output for AWS Amplify
   trailingSlash: true,
-  output: 'standalone',
 }
 
 export default nextConfig
