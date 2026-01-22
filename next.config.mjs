@@ -10,6 +10,9 @@ const nextConfig = {
     // (all images are served from the same domain).
     formats: ["image/avif", "image/webp"],
   },
+  // Ensure proper output for AWS Amplify
+  trailingSlash: true,
+  output: 'standalone',
 }
 
 export default nextConfig
