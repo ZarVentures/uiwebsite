@@ -5,19 +5,29 @@ export async function POST(req: Request) {
     try {
         const { name, email, subject, message, projectTitle } = await req.json();
 
+        // Hardcoded fallback values in case environment variables are not set
+        const FALLBACK_GMAIL_USER = "Urbaninnovationllc@gmail.com";
+        const FALLBACK_GMAIL_APP_PASSWORD = "bxearfyedcwamquf";
+        const FALLBACK_CONTACT_RECEIVER_EMAIL = "Urbaninnovationllc@gmail.com";
+
+        // Use environment variables with fallback to hardcoded values
+        const gmailUser = process.env.GMAIL_USER || FALLBACK_GMAIL_USER;
+        const gmailPassword = process.env.GMAIL_APP_PASSWORD || FALLBACK_GMAIL_APP_PASSWORD;
+        const receiverEmail = process.env.CONTACT_RECEIVER_EMAIL || FALLBACK_CONTACT_RECEIVER_EMAIL;
+
         // 1. Create a Transporter
-        const transporter = nodemailer.createTransport({
+        const transporter = nodemailer.createTransporter({
             service: "gmail",
             auth: {
-                user: process.env.GMAIL_USER,
-                pass: process.env.GMAIL_APP_PASSWORD,
+                user: gmailUser,
+                pass: gmailPassword,
             },
         });
 
         // 2. Define the email options
         const mailOptions = {
-            from: process.env.GMAIL_USER,
-            to: process.env.CONTACT_RECEIVER_EMAIL,
+            from: gmailUser,
+            to: receiverEmail,
             subject: `New Contact Form Message: ${subject || projectTitle || "No Subject"}`,
             html: `
         <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px; max-width: 600px;">
@@ -28,6 +38,10 @@ export async function POST(req: Request) {
           <hr style="border: 0; border-top: 1px solid #eee;" />
           <p><strong>Message:</strong></p>
           <p style="white-space: pre-wrap;">${message}</p>
+          <hr style="border: 0; border-top: 1px solid #eee; margin-top: 20px;" />
+          <p style="font-size: 12px; color: #666;">
+            <strong>Configuration:</strong> Using ${process.env.GMAIL_USER ? 'environment variables' : 'fallback values'}
+          </p>
         </div>
       `,
         };
@@ -42,7 +56,7 @@ export async function POST(req: Request) {
     } catch (error) {
         console.error("Email sending error:", error);
         return NextResponse.json(
-            { message: "Failed to send email" },
+            { message: "Failed to send email", error: error instanceof Error ? error.message : "Unknown error" },
             { status: 500 }
         );
     }
