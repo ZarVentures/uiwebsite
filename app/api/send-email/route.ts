@@ -3,11 +3,11 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
     console.log("=== EMAIL API CALLED ===");
-    
+
     try {
         const body = await req.json();
         console.log("Request body received:", JSON.stringify(body, null, 2));
-        
+
         const { name, email, subject, message, projectTitle } = body;
 
         // Hardcoded fallback values in case environment variables are not set
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
 
         // 1. Create a Transporter
         console.log("Creating nodemailer transporter...");
-        const transporter = nodemailer.createTransporter({
+        const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
                 user: gmailUser,
@@ -74,7 +74,7 @@ export async function POST(req: Request) {
         console.log("Email sent successfully!", result.messageId);
 
         return NextResponse.json(
-            { 
+            {
                 message: "Email sent successfully",
                 messageId: result.messageId,
                 usingEnvVars: !!process.env.GMAIL_USER
@@ -87,10 +87,10 @@ export async function POST(req: Request) {
         console.error("Error message:", error instanceof Error ? error.message : "Unknown error");
         console.error("Full error:", error);
         console.error("Stack trace:", error instanceof Error ? error.stack : "No stack trace");
-        
+
         return NextResponse.json(
-            { 
-                message: "Failed to send email", 
+            {
+                message: "Failed to send email",
                 error: error instanceof Error ? error.message : "Unknown error",
                 errorType: error?.constructor?.name || "Unknown"
             },
