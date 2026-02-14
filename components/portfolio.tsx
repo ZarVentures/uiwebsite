@@ -23,9 +23,21 @@ export default function Portfolio() {
     return null
   }
 
-  const categories = ["All", ...new Set(projects.map((p) => p.category || "Uncategorized"))]
+  // Fixed category order: All, Residential, F&B & Retail, Commercial
+  const categoryOrder = ["All", "Residential", "F&B & Retail", "Commercial"]
+  
+  // Show all categories in the fixed order, even if some don't have projects yet
+  const categories = categoryOrder
+  
   const filteredProjects =
-    selectedCategory === "All" ? projects : projects.filter((p) => (p.category || "Uncategorized") === selectedCategory)
+    selectedCategory === "All"
+      ? projects
+      : selectedCategory === "F&B & Retail"
+      ? projects.filter((p) => {
+          const category = p.category || "Uncategorized"
+          return category === "F&B" || category === "Retail"
+        })
+      : projects.filter((p) => (p.category || "Uncategorized") === selectedCategory)
 
   return (
     <section id="portfolio" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 bg-linear-to-b from-transparent to-muted/20">
@@ -89,28 +101,29 @@ export default function Portfolio() {
       </motion.div>
 
       {/* Projects Grid */}
-      <motion.div
-        layout
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-      >
-        <AnimatePresence mode="popLayout">
-          {filteredProjects.map((project) => (
-            <motion.div
-              layout
-              key={project.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.4 }}
-              className="group bg-white rounded-2xl overflow-hidden luxury-shadow premium-hover relative"
-            >
-              <div className="relative h-80 bg-muted overflow-hidden">
+      {selectedCategory === "All" ? (
+        /* All: Images Only - 4 columns with smaller images */
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                layout
+                key={project.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="group relative overflow-hidden rounded-lg aspect-[4/3] p-8"
+              >
                 <Image
                   src={project.image || "/placeholder.jpg"}
                   alt={project.title || "Project image"}
                   fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-700 rounded-lg"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement
                     if (target) {
@@ -118,27 +131,97 @@ export default function Portfolio() {
                     }
                   }}
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute top-4 left-4">
-                  <span className="px-4 py-1.5 bg-white/90 backdrop-blur-sm text-primary rounded-full text-xs font-semibold tracking-wide">
-                    {project.category}
-                  </span>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      ) : selectedCategory === "Residential" || selectedCategory === "Commercial" || selectedCategory === "F&B & Retail" ? (
+        /* Residential, Commercial, F&B & Retail: Images Only - 3 columns */
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                layout
+                key={project.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="group relative overflow-hidden rounded-lg aspect-[4/3] p-12"
+              >
+                <Image
+                  src={project.image || "/placeholder.jpg"}
+                  alt={project.title || "Project image"}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-700 rounded-lg"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement
+                    if (target) {
+                      target.src = "/placeholder.jpg"
+                    }
+                  }}
+                />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      ) : (
+        /* Other Categories: Full Card Layout */
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project) => (
+              <motion.div
+                layout
+                key={project.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4 }}
+                className="group bg-white rounded-2xl overflow-hidden luxury-shadow premium-hover relative"
+              >
+                <div className="relative h-80 bg-muted overflow-hidden">
+                  <Image
+                    src={project.image || "/placeholder.jpg"}
+                    alt={project.title || "Project image"}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      if (target) {
+                        target.src = "/placeholder.jpg"
+                      }
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute top-4 left-4">
+                    <span className="px-4 py-1.5 bg-white/90 backdrop-blur-sm text-primary rounded-full text-xs font-semibold tracking-wide">
+                      {project.category}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-3 tracking-tight">{project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-6 leading-relaxed font-light">{project.description}</p>
-                <div className="flex justify-between items-center text-sm text-muted-foreground pt-4 border-t border-border/50">
-                  <span className="font-medium">{project.location}</span>
-                  <span>
-                    {new Date(project.completionDate).toLocaleDateString("en-US", { year: "numeric", month: "long" })}
-                  </span>
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-foreground mb-3 tracking-tight">{project.title}</h3>
+                  <p className="text-muted-foreground text-sm mb-6 leading-relaxed font-light">{project.description}</p>
+                  <div className="flex justify-between items-center text-sm text-muted-foreground pt-4 border-t border-border/50">
+                    <span className="font-medium">{project.location}</span>
+                    <span>
+                      {new Date(project.completionDate).toLocaleDateString("en-US", { year: "numeric", month: "long" })}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </motion.div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      )}
     </section>
   )
 }
